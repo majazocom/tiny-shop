@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+    strict: true,
     state: {
         products: [
             {
@@ -34,6 +35,12 @@ export default new Vuex.Store({
         });
         return saleProducts;
       },
+      },
+      mutations: {
+        reducePrice: state => {
+          state.products.forEach( product => {
+            product.price -= 1;
+          })
+        }
       }
-    
 })
